@@ -75,7 +75,8 @@
                                                                            andSecret:secret
                                                                             andEmail:email
                                                                       andDisplayName:displayName
-                                                                             andGUID:guid];
+                                                                             andGUID:guid
+                                                                            andModal:NO];
 	
 	[self showUserVoice:rootViewController forController:viewController];
 	
@@ -86,7 +87,8 @@
 										   andSecret:(NSString *)secret
 											andEmail:(NSString *)email
 									  andDisplayName:(NSString *)displayName
-											 andGUID:(NSString *)guid {
+											 andGUID:(NSString *)guid
+                                            andModal:(BOOL)modal {
 	[UVSession currentSession].config = [[[UVConfig alloc] initWithSite:site andKey:key andSecret:secret] autorelease];
 	
 	UIViewController *rootViewController;
@@ -103,6 +105,10 @@
 	
 	// Capture the launch orientation, then store it in NSDefaults for reference in all other UV view controller classes
 	[UVClientConfig setOrientation];
+    
+    if (modal) {
+        [UVSession currentSession].isModal = YES;
+    }
     
     return rootViewController;
 }
