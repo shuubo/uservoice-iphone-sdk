@@ -70,6 +70,27 @@
 											 andGUID:(NSString *)guid {
 	[UVSession currentSession].config = [[[UVConfig alloc] initWithSite:site andKey:key andSecret:secret] autorelease];
 	
+	UIViewController *rootViewController = [self userVoiceModalViewControllerForParent:viewController 
+                                                                               andSite:site
+                                                                                andKey:key
+                                                                             andSecret:secret
+                                                                              andEmail:email
+                                                                        andDisplayName:displayName
+                                                                               andGUID:guid];
+	
+	[self showUserVoice:rootViewController forController:viewController];
+	
+}
+
++ (UIViewController*)userVoiceModalViewControllerForParent:(UIViewController *)viewController 
+											 andSite:(NSString *)site
+											  andKey:(NSString *)key
+										   andSecret:(NSString *)secret
+											andEmail:(NSString *)email
+									  andDisplayName:(NSString *)displayName
+											 andGUID:(NSString *)guid {
+	[UVSession currentSession].config = [[[UVConfig alloc] initWithSite:site andKey:key andSecret:secret] autorelease];
+	
 	UIViewController *rootViewController;
 	if ([[UVSession currentSession] clientConfig])
 	{
@@ -84,10 +105,11 @@
 	
 	// Capture the launch orientation, then store it in NSDefaults for reference in all other UV view controller classes
 	[UVClientConfig setOrientation];
-	
-	[self showUserVoice:rootViewController forController:viewController];
-	
+    
+    return rootViewController;
 }
+
+
 
 + (void)presentUserVoiceContactUsFormForParent:(UIViewController *)viewController
                                        andSite:(NSString *)site

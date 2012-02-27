@@ -36,6 +36,14 @@
                                       andDisplayName:(NSString *)displayName
                                              andGUID:(NSString *)guid;
 
++ (UIViewController*)userVoiceModalViewControllerForParent:(UIViewController *)viewController 
+                                                   andSite:(NSString *)site
+                                                    andKey:(NSString *)key
+                                                 andSecret:(NSString *)secret
+                                                  andEmail:(NSString *)email
+                                            andDisplayName:(NSString *)displayName
+                                                   andGUID:(NSString *)guid;
+
 // Modally present the UserVoice contact form
 + (void)presentUserVoiceContactUsFormForParent:(UIViewController *)viewController
                                        andSite:(NSString *)site
