@@ -70,20 +70,18 @@
 											 andGUID:(NSString *)guid {
 	[UVSession currentSession].config = [[[UVConfig alloc] initWithSite:site andKey:key andSecret:secret] autorelease];
 	
-	UIViewController *rootViewController = [self userVoiceModalViewControllerForParent:viewController 
-                                                                               andSite:site
-                                                                                andKey:key
-                                                                             andSecret:secret
-                                                                              andEmail:email
-                                                                        andDisplayName:displayName
-                                                                               andGUID:guid];
+	UIViewController *rootViewController = [self userVoiceModalViewControllerForSite:site
+                                                                              andKey:key
+                                                                           andSecret:secret
+                                                                            andEmail:email
+                                                                      andDisplayName:displayName
+                                                                             andGUID:guid];
 	
 	[self showUserVoice:rootViewController forController:viewController];
 	
 }
 
-+ (UIViewController*)userVoiceModalViewControllerForParent:(UIViewController *)viewController 
-											 andSite:(NSString *)site
++ (UIViewController*)userVoiceModalViewControllerForSite:(NSString *)site
 											  andKey:(NSString *)key
 										   andSecret:(NSString *)secret
 											andEmail:(NSString *)email

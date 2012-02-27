@@ -36,8 +36,7 @@
                                       andDisplayName:(NSString *)displayName
                                              andGUID:(NSString *)guid;
 
-+ (UIViewController*)userVoiceModalViewControllerForParent:(UIViewController *)viewController 
-                                                   andSite:(NSString *)site
++ (UIViewController*)userVoiceModalViewControllerForSite:(NSString *)site
                                                     andKey:(NSString *)key
                                                  andSecret:(NSString *)secret
                                                   andEmail:(NSString *)email
