@@ -125,11 +125,11 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)theTableView {	
-	return 1;
+	return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)theTableView numberOfRowsInSection:(NSInteger)section {
-	return 1;
+	return 0;
 }
 
 #pragma mark ===== UITableViewDelegate Methods =====
